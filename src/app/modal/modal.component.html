@@ -1,0 +1,50 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Create new Tab</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <p class="new-tab-info-text">
+    You can create a new <i class="new-tab-info-text-highlight">graph tab</i> here. You can leave the name empty to
+    quickly create a new graph or you can choose to create a tab for a specific round by clicking the <i
+    class="new-tab-info-text-highlight">specific round(s)</i> button.
+  </p>
+
+  <div class="modal-body">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Title</mat-label>
+        <input matInput #message maxlength="256" placeholder="Ex. Live tracking">
+        <mat-hint align="start"><strong>Name your new Tab</strong></mat-hint>
+        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+      </mat-form-field>
+
+      <div class="btn-group" id="new-tab-buttons">
+        <input mdbRadio type="radio" class="btn-check" name="options" id="normal" autocomplete="off" [checked]="true"
+               (click)="this.areTextFieldsVisible = false"/>
+        <label class="btn btn-primary" for="normal">Normal</label>
+        <input mdbRadio type="radio" class="btn-check" name="options" id="rounds" autocomplete="off"
+               (click)="this.areTextFieldsVisible = true"/>
+        <label class="btn btn-primary" for="rounds">Specific Round(s)</label>
+      </div>
+
+      <div class="btn-group" *ngIf="this.areTextFieldsVisible">
+        <label class="form-label" for="inputRoundFrom">From: </label>
+        <input [(ngModel)]="roundFrom" class="form-control" id="inputRoundFrom" placeholder="0" name="roundFrom">
+        <label class="form-label" for="inputRoundTo">To: </label>
+        <input [(ngModel)]="roundTo" class="form-control" id="inputRoundTo" placeholder="0" name="roundTo">
+      </div>
+    </form>
+  </div>
+  <button mat-raised-button
+          class="example-add-tab-button"
+          (click)="addTab(true, message.value)"
+          (click)="message.value=''"
+          (click)="modal.dismiss('Cross click')">
+    <p class="new-tab-info-text">Add <i class="new-tab-info-text-highlight">{{message.value}}</i> Tab</p>
+  </button>
+</ng-template>
+<div>
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Create new Tab</button>
+  <button class="btn-close" style="float: right; margin-top: 0.75rem" (click)="removeTab()"
+          *ngIf="hasAtLeastOneTab()"></button>
+</div>

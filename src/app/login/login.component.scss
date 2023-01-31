@@ -1,0 +1,10 @@
+@import "src/styles/variables";
+
+.logincontainer{
+  box-shadow: $mainColor 0 0 15px 2px;
+  border-radius: 1rem;
+}
+
+.loginError {
+  color: red;
+}

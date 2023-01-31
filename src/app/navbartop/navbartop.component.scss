@@ -1,0 +1,31 @@
+@import "src/styles/variables";
+.mat-toolbar{
+  box-shadow: $mainColor 0 0 15px 2px;
+}
+
+.navbarbutton{
+  color: $mainColor;
+  transition: all .2s;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-radius: 99px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  padding: 10px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.navbarbutton:hover{
+  background: $mainColor;
+  color:white;
+}
+
+.loginLogoNavbar {
+  z-index: 99999;
+  max-width: 25%;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}

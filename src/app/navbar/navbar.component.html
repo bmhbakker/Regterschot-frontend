@@ -1,0 +1,27 @@
+<div style="width: 100%" resizeObserver (resize)="onResize({ev : $event})">
+
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">Open</mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> Close</mat-icon>
+  </button>
+ 
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav class="mat-elevation-z8 ">
+      <h1 class="name">Add graphs to your tab</h1>
+
+      <mat-divider></mat-divider>
+          <div *ngFor="let sensor of sensorArray">
+            <button class="sensorButton" (click)="addGraph(sensor[1], sensor[2])">{{ sensor[1] }}</button>
+          </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="content">
+<!--        <app-tabs></app-tabs>-->
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>
+
+

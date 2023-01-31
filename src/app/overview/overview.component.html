@@ -1,0 +1,18 @@
+<div class="races">
+<div class="container" *ngFor="let race of races">
+  <div class="row justify-content-md-center">
+    <a [title]="'Ga naar dashboard'"
+       [routerLink]="['/watch',race.id]">
+      <div class="race rounded d-flex justify-content-sm-between ">
+        <div>
+          <h4>{{race.raceName}}</h4>
+          <H5>{{race.car}}</H5>
+        </div>
+        <div>
+          <h6>{{race.date}}</h6>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+</div>

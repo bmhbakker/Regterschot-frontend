@@ -1,0 +1,10 @@
+
+node_modules
+.idea/vcs.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/regterschot-fe.iml
+.idea/runConfigurations.xml
+RegterschotDashboard/package-lock.json
+package-lock.json
+RegterschotDashboard/package.json

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button (click)=destroyConnection() class="btn btn-primary mainButtonBackground me-3">End connection</button>
+
+      <hr>
+      <app-modal></app-modal>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row justify-content-evenly">
+    <mat-tab-group #tabGroup [selectedIndex]="selected.value"
+                   (selectedTabChange)="onTabChanged($event);" mat-align-tabs="center">
+      <mat-tab *ngFor="let tab of tabArray; let index = index" [label]="tab.tabName" class="noOverflow">
+        <div class="graphHolder" id="{{ 'graphHolder' + tab.tabId }}"></div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+
+<div id="nav">
+  <app-navbar>
+  </app-navbar>
+</div>
